@@ -11,18 +11,18 @@
 // const tabBar = document.querySelector('.topics');
 
 
-// axios 
-// .get('https://lambda-times-backend.herokuapp.com/topics')
-// .then((res)=>{
-//   console.log(res)
+// // axios 
+// // .get('https://lambda-times-backend.herokuapp.com/topics')
+// // .then((res)=>{
+// //   console.log(res)
 
-//     })
-//     .catch((err)=>{console.log(err)});
+// //     })
+// //     .catch((err)=>{console.log(err)});
   
-// function topicsTab(arr){
-  const tabs = document.createElement('div')
-console.log(tabs)
-// tabBar.appendChild(tabs);
+// // function topicsTab(arr){
+//   const tabs = document.createElement('div')
+// console.log(tabs)
+// // tabBar.appendChild(tabs);
 
 
 
