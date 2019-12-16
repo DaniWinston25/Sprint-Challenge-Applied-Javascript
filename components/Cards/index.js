@@ -22,19 +22,60 @@
 axios
 .get(" https://lambda-times-backend.herokuapp.com/articles")
 .then((res)=>{
-    console.log (res.data.articles);
+  article = res.data.articles.javascript
 
-    // articles.forEach((item)=>{
-    //     const newArticle = newArticlesCreator(item);
-    //     cardCreator.appendChild(newArticlesCreator(newArticle))  
-
-    // })
-
-    
+    article.forEach((item)=>{
+        const newArticle = newArticlesCreator(item);
+        cardCreator.appendChild(newArticlesCreator(newArticle))  
+ 
+    })
 })
-.catch((err)=>console.log(err));
+axios 
+.get(" https://lambda-times-backend.herokuapp.com/articles")
+.then((res)=>{
+    newArticle = res.data.articles.bootstrap
+    newArticle.forEach((item)=>{
+        const new1 = newArticlesCreator(item);
+        cardCreator.appendChild(newArticlesCreator(new1))  
+ 
+    })
+})
 
-//  const cardCreator = document.querySelector('.cards-container')
+axios 
+.get(" https://lambda-times-backend.herokuapp.com/articles")
+.then((res)=>{
+    techArticle = res.data.articles.technology
+    techArticle.forEach((item)=>{
+        const new2 = newArticlesCreator(item);
+        cardCreator.appendChild(newArticlesCreator(new2))  
+ 
+    })
+})
+
+axios 
+.get(" https://lambda-times-backend.herokuapp.com/articles")
+.then((res)=>{
+    jqueryArticle = res.data.articles.jquery
+    jqueryArticle.forEach((item)=>{
+        const new3 = newArticlesCreator(item);
+        cardCreator.appendChild(newArticlesCreator(new3))  
+ 
+    })
+})
+
+axios 
+.get(" https://lambda-times-backend.herokuapp.com/articles")
+.then((res)=>{
+    nodeArticle = res.data.articles.node 
+    nodeArticle.forEach((item)=>{
+        const new4 = newArticlesCreator(item);
+        cardCreator.appendChild(newArticlesCreator(new4))  
+ 
+    })
+})
+
+
+ const cardCreator = document.querySelector('.cards-container')
 
 function newArticlesCreator(arr){
     const card = document.createElement('div');
@@ -57,10 +98,10 @@ headlines.classList.add('headline');
 author.classList.add('author');
 imgClass.classList.add('img-container');
 
-// ///text content//
-// spanned.textContent = arr[0];
-// headlines.textContent = ``;
-// newImg.src = ``;
+///text content//
+author.textContent = `${arr.authorName}` ;
+headlines.textContent = `${arr.headlines}`;
+newImg.src = `${arr.authorPhoto}`;
 
 return card;
 
