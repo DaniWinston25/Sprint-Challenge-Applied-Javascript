@@ -23,12 +23,17 @@ axios
 
 })
 
+
 const topicsTab = document.querySelector(".topics")
 
-function topicCreator(){
+function topicCreator(array){
+
   const tab = document.createElement('div');
 
+
 tab.classList.add('tab');
+
+tab.textContent = array[0]
 
 
 return tab;
