@@ -17,67 +17,36 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
-
+ const cardCreator = document.querySelector('.cards-container')
 // 
 axios
 .get(" https://lambda-times-backend.herokuapp.com/articles")
 .then((res)=>{
-  article = res.data.articles.javascript
+    const articles = res.data.articles;
 
-    article.forEach((item)=>{
-        const newArticle = newArticlesCreator(item);
-        cardCreator.appendChild(newArticlesCreator(newArticle))  
- 
-    })
-})
-axios 
-.get(" https://lambda-times-backend.herokuapp.com/articles")
-.then((res)=>{
-    newArticle = res.data.articles.bootstrap
-    newArticle.forEach((item)=>{
-        const new1 = newArticlesCreator(item);
-        cardCreator.appendChild(newArticlesCreator(new1))  
- 
-    })
-})
+    const JS = articles.javascript;
+    const bootStr = articles.bootstrap;
+    const tech = articles.technology;
+    const jQ = articles.jquery;
+    const nodeS = articles.node.js;
 
-axios 
-.get(" https://lambda-times-backend.herokuapp.com/articles")
-.then((res)=>{
-    techArticle = res.data.articles.technology
-    techArticle.forEach((item)=>{
-        const new2 = newArticlesCreator(item);
-        cardCreator.appendChild(newArticlesCreator(new2))  
- 
-    })
-})
+    const allArticles = JS.concat(bootStr, tech, jQ, nodeS)
 
-axios 
-.get(" https://lambda-times-backend.herokuapp.com/articles")
-.then((res)=>{
-    jqueryArticle = res.data.articles.jquery
-    jqueryArticle.forEach((item)=>{
-        const new3 = newArticlesCreator(item);
-        cardCreator.appendChild(newArticlesCreator(new3))  
- 
-    })
-})
+    console.log(allArticles)
 
-axios 
-.get(" https://lambda-times-backend.herokuapp.com/articles")
-.then((res)=>{
-    nodeArticle = res.data.articles.node 
-    nodeArticle.forEach((item)=>{
-        const new4 = newArticlesCreator(item);
-        cardCreator.appendChild(newArticlesCreator(new4))  
- 
+    allArticles.forEach((article)=>{
+        const newArticle = newArticlesCreator(article);
+        cardCreator.appendChild(newArticle);
+
     })
+
 })
 
 
- const cardCreator = document.querySelector('.cards-container')
 
-function newArticlesCreator(arr){
+
+
+function newArticlesCreator(object){
     const card = document.createElement('div');
     const headlines = document.createElement('div');
     const author = document.createElement('div');
@@ -99,9 +68,10 @@ author.classList.add('author');
 imgClass.classList.add('img-container');
 
 ///text content//
-author.textContent = `${arr.authorName}` ;
-headlines.textContent = `${arr.headlines}`;
-newImg.src = `${arr.authorPhoto}`;
+author.textContent = `${object.authorName}` ;
+headlines.textContent = `${object.headline}`;
+imgClass.textContent =`${object.authorPhoto}`
+newImg.src = `authorPhoto`;
 
 return card;
 
