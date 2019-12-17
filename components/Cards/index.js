@@ -70,8 +70,7 @@ imgClass.classList.add('img-container');
 ///text content//
 author.textContent = `${object.authorName}` ;
 headlines.textContent = `${object.headline}`;
-imgClass.textContent =`${object.authorPhoto}`
-newImg.src = `authorPhoto`;
+imgClass.src =`${object.authorPhoto}`;
 
 return card;
 
